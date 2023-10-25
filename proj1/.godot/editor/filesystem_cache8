@@ -1,0 +1,6 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1698238982
+env_tileset.png::CompressedTexture2D::8735438269534941020::1698238924::1698238983::1::::<><>::
+icon.svg::CompressedTexture2D::368583946539299649::1698238924::1698238983::1::::<><>::
+main.tscn::PackedScene::2523617712284045247::1698238924::0::1::::<><>::uid://dwprnlgtp6r3y::::res://env_tileset.png<>res://TileMap.gd
+TileMap.gd::GDScript::-1::1698238924::0::1::::<>TileMap<>::

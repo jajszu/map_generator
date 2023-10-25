@@ -101,10 +101,69 @@ func generate():
 			tiles[x][size-1] = 3
 		if tiles[size-1][x] != 3:
 			tiles[size-1][x] = 3
+	for x in range(1,size-1):
+		for y in range(1,size-1):
+			var coneccted = 8
+			var domination = [0,0]
+			if tiles[x][y]!=2:
+				if tiles[x-1][y] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x-1][y]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x-1][y-1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x-1][y-1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x-1][y+1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x-1][y+1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x+1][y] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x+1][y]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x+1][y-1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x+1][y-1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x+1][y+1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x+1][y+1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x][y-1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x][y-1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if tiles[x][y+1] != tiles[x][y]:
+					coneccted-=1
+				if tiles[x][y+1]:
+					domination[1]+=1
+				else:
+					domination[0]+=1
+				if coneccted<=1:
+					if domination[0] == domination[1]:
+						pass
+					elif domination[0]>domination[1]:
+						tiles[x][y] = 0
+					else:
+						tiles[x][y] = 1
 	for x in size:
 		for y in size:
 			set_cell(0,Vector2i(x,y),0,Vector2i(0,tiles[x][y]))
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	generate()
 func _process(delta):
